@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // Swiping in right direction
       setState(() {
         isDrawerOpen = true;
+        FocusScope.of(context).unfocus();
       });
     } else if (details.delta.dx < 0) {
       // Swiping in left direction
@@ -119,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: TextField(
+                                enabled: isDrawerOpen ? false : true,
                                 decoration: InputDecoration(
                                   hintText: "Search address, or near you",
                                   border: InputBorder.none,

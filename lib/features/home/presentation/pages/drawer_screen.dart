@@ -81,7 +81,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             DrawerItem(
               isSelected: selectedIndex == 5,
               itemName: "Message",
-              icon: Icons.message,
+              icon: Icons.quickreply_rounded,
               onTap: () {
                 setState(() {
                   selectedIndex = 5;
@@ -116,7 +116,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
             DrawerItem(
               isSelected: selectedIndex == 8,
               itemName: "Logout",
-              icon: Icons.logout,
+              icon: Icons.power_settings_new,
               onTap: () {
                 setState(() {
                   selectedIndex = 8;

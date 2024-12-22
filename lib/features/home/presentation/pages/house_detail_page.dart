@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_skill_test/core/utils/app_colors.dart';
+import 'package:flutter_skill_test/core/utils/utils.dart';
 import 'package:flutter_skill_test/features/home/domain/entities/house.dart';
 import 'package:flutter_skill_test/features/home/presentation/pages/maps_view_screen.dart';
 import 'package:flutter_skill_test/features/home/presentation/widgets/see_more_widget.dart';
@@ -74,6 +75,7 @@ class _HouseDetailPageState extends State<HouseDetailPage> {
                           child: IconButton(
                             onPressed: () {
                               debugPrint('Bookmarked');
+                              showToast('Bookmarked is not implemented yet');
                             },
                             icon: Icon(
                               Icons.bookmark_outline,
@@ -249,34 +251,45 @@ class _HouseDetailPageState extends State<HouseDetailPage> {
                     ),
                     //call and message buttons with 26px height and width
                     Spacer(),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        gradient: AppColors.blueOceanLinearGradient,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.call_outlined,
-                          color: Colors.white,
-                          size: 16,
+                    GestureDetector(
+                      onTap: () async {
+                        await dialNumber("+31612345678");
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          gradient: AppColors.blueOceanLinearGradient,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.call_outlined,
+                            color: Colors.white,
+                            size: 16,
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(width: 17),
-                    Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        gradient: AppColors.blueOceanLinearGradient,
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.message_outlined,
-                          color: Colors.white,
-                          size: 16,
+                    GestureDetector(
+                      onTap: () async {
+                        await messageNumber("+31612345678",
+                            "Hello, I'm interested in your house");
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          gradient: AppColors.blueOceanLinearGradient,
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.message_outlined,
+                            color: Colors.white,
+                            size: 16,
+                          ),
                         ),
                       ),
                     ),
