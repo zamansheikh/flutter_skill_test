@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_skill_test/core/routes/route_names.dart';
 import 'package:flutter_skill_test/core/utils/app_colors.dart';
+import 'package:flutter_skill_test/core/utils/utils.dart';
+import 'package:flutter_skill_test/features/home/presentation/controllers/home_controller.dart';
 import 'package:flutter_skill_test/features/home/presentation/widgets/best_house_card.dart';
+import 'package:flutter_skill_test/features/home/presentation/widgets/best_house_card_skeleton.dart';
 import 'package:flutter_skill_test/features/home/presentation/widgets/category_button.dart';
 import 'package:flutter_skill_test/features/home/presentation/widgets/custom_section.dart';
 import 'package:flutter_skill_test/features/home/presentation/widgets/near_houe_card.dart';
+import 'package:flutter_skill_test/features/home/presentation/widgets/near_houe_card_skeleton.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,7 +20,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isDrawerOpen = false;
-
+  final HomeController controller = Get.find();
   void _onHorizontalDragUpdate(DragUpdateDetails details) {
     if (details.delta.dx > 0) {
       // Swiping in right direction
@@ -40,8 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onHorizontalDragUpdate: _onHorizontalDragUpdate,
       child: AnimatedContainer(
-        height: MediaQuery.of(context).size.height, // Add constraints
-        width: MediaQuery.of(context).size.width, // Add constraints
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0),
           color: Colors.white,
@@ -64,11 +70,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("Location"),
-                        Text(
-                          "Jakarta",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                        GestureDetector(
+                          onTap: () {
+                            showToast("Not implemented yet");
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                "Jakarta",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Icon(Icons.keyboard_arrow_down),
+                            ],
                           ),
                         ),
                       ],
@@ -77,9 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     IconButton(
                       icon: Icon(Icons.notification_important_outlined),
                       onPressed: () {
-                        setState(() {
-                          print("Notification button pressed");
-                        });
+                        showToast("Not implemented yet");
                       },
                     ),
                   ],
@@ -152,32 +166,35 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 24),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  spacing: 24,
-                  children: [
-                    const SizedBox(),
-                    NearHouseCard(
-                      imageUrl:
-                          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      title: "Dreamsville House",
-                      address: "Jl. Sultan Iskandar Muda",
-                      distance: "1.8 KM",
-                    ),
-                    NearHouseCard(
-                      imageUrl:
-                          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      title: "Dreamsville House",
-                      address: "Jl. Sultan Iskandar Muda",
-                      distance: "1.8 KM",
-                    ),
-                    NearHouseCard(
-                      imageUrl:
-                          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      title: "Dreamsville House",
-                      address: "Jl. Sultan Iskandar Muda",
-                      distance: "1.8 KM",
-                    ),
-                  ],
+                child: Obx(
+                  () {
+                    if (controller.isLoading.value) {
+                      return Row(spacing: 24, children: [
+                        SizedBox(),
+                        ...List.generate(
+                          3,
+                          (index) => const NearHouseCardSkeleton(),
+                        ),
+                      ]);
+                    }
+                    return Row(spacing: 24, children: [
+                      SizedBox(),
+                      ...List.generate(
+                        controller.houses.length,
+                        (index) => NearHouseCard(
+                          onTap: () {
+                            Get.toNamed(RouteNames.houseDetails,
+                                arguments: controller.houses[index]);
+                          },
+                          title: controller.houses[index].name,
+                          address: controller.houses[index].address,
+                          distance:
+                              "${controller.houses[index].distance.toStringAsFixed(0)} KM",
+                          imageUrl: controller.houses[index].imageUrl,
+                        ),
+                      ),
+                    ]);
+                  },
                 ),
               ),
               SizedBox(height: 24),
@@ -188,51 +205,47 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
-                  child: Column(
-                    spacing: 24,
-                    children: [
-                      BestHouseCard(
-                        title: "Orchad House",
-                        price: "Rp. 2.500.000.000 / Year",
-                        bedrooms: 4,
-                        bathrooms: 4,
-                        imageUrl:
-                            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      ),
-                      BestHouseCard(
-                        title: "Orchad House",
-                        price: "Rp. 2.500.000.000 / Year",
-                        bedrooms: 4,
-                        bathrooms: 4,
-                        imageUrl:
-                            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      ),
-                      BestHouseCard(
-                        title: "Orchad House",
-                        price: "Rp. 2.500.000.000 / Year",
-                        bedrooms: 4,
-                        bathrooms: 4,
-                        imageUrl:
-                            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      ),
-                      BestHouseCard(
-                        title: "Orchad House",
-                        price: "Rp. 2.500.000.000 / Year",
-                        bedrooms: 4,
-                        bathrooms: 4,
-                        imageUrl:
-                            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      ),
-                      BestHouseCard(
-                        title: "Orchad House",
-                        price: "Rp. 2.500.000.000 / Year",
-                        bedrooms: 4,
-                        bathrooms: 4,
-                        imageUrl:
-                            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-                      ),
-                    ],
-                  ),
+                  child: Obx(() {
+                    if (controller.isLoading.value) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: 3,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: const [
+                              BestHouseCardSkeleton(),
+                              SizedBox(height: 16),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: controller.houses.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            BestHouseCard(
+                              onTap: () {
+                                Get.toNamed(RouteNames.houseDetails,
+                                    arguments: controller.houses[index]);
+                              },
+                              title: controller.houses[index].name,
+                              price:
+                                  "Rp. ${controller.houses[index].price}/Year",
+                              bedrooms: controller.houses[index].bedrooms,
+                              bathrooms: controller.houses[index].bathrooms,
+                              imageUrl: controller.houses[index].imageUrl,
+                            ),
+                            const SizedBox(height: 16),
+                          ],
+                        );
+                      },
+                    );
+                  }),
                 ),
               ),
             ],

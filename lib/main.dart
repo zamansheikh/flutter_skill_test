@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_skill_test/features/home/presentation/pages/home_page.dart';
+import 'package:flutter_skill_test/core/routes/route_generator.dart';
+import 'package:flutter_skill_test/core/routes/route_names.dart';
+import 'package:flutter_skill_test/injection_container.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'injection_container.dart' as di;
 
-void main() {
+void main() async {
+  Injection.init();
   runApp(const MyApp());
 }
 
@@ -13,7 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'IRD Flutter Skill Test',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -21,7 +24,9 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: HomePage(),
+      // home: HomePage(),
+      initialRoute: RouteNames.homePage,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

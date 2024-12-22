@@ -1,0 +1,178 @@
+[
+    {
+        "name": "Dreamsville House",
+        "type": "Villa",
+        "address": "Jl Sultan Iskandar Muda, Jakarta Selatan",
+        "price": 2500000000.0,
+        "bedrooms": 6,
+        "bathrooms": 4,
+        "imageUrl": "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+        "distance": 1.8,
+        "ownerName": "Garry Allen",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+        ],
+        "description": "The 3-level house that has a modern design, a large pool, and a garage that fits up to four cars. The house is located in a quiet neighborhood with a beautiful garden. The house is also equipped with a smart home system."
+    },
+    {
+        "name": "Orchard House",
+        "type": "House",
+        "address": "Jl Cilandak Tengah, Jakarta Selatan",
+        "price": 2000000000.0,
+        "bedrooms": 5,
+        "bathrooms": 3,
+        "imageUrl": "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+        "distance": 2.0,
+        "ownerName": "Samantha Doe",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg"
+        ],
+        "description": "A cozy house in a serene neighborhood with a large backyard. The house is equipped with a modern kitchen and a spacious living room. The house is also surrounded by various fruit trees. The house is perfect for a family who loves gardening."
+    },
+    {
+        "name": "Ascot Villa",
+        "type": "Villa",
+        "address": "Jl Panglima Polim, Jakarta Selatan",
+        "price": 3000000000.0,
+        "bedrooms": 7,
+        "bathrooms": 5,
+        "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+        "distance": 3.2,
+        "ownerName": "John Smith",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+        ],
+        "description": "A luxurious villa with a private pool and spacious living spaces."
+    },
+    {
+        "name": "The Hollies",
+        "type": "Apartment",
+        "address": "Jl Kemang Raya, Jakarta Selatan",
+        "price": 1500000000.0,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "imageUrl": "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+        "distance": 1.5,
+        "ownerName": "Michael Brown",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg"
+        ],
+        "description": "A modern apartment with city views and excellent amenities."
+    },
+    {
+        "name": "Seaside Retreat",
+        "type": "House",
+        "address": "Jl Pantai Indah, Jakarta Utara",
+        "price": 180000000.0,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+        "distance": 4.0,
+        "ownerName": "Emily Clark",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg"
+        ],
+        "description": "A charming house near the beach with stunning sea views."
+    },
+    {
+        "name": "Lakeside Manor",
+        "type": "House",
+        "address": "Jl Danau Toba, Jakarta Barat",
+        "price": 230000000.0,
+        "bedrooms": 6,
+        "bathrooms": 4,
+        "imageUrl": "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+        "distance": 5.5,
+        "ownerName": "Robert Williams",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+        ],
+        "description": "A spacious house with a beautiful lake view and lush garden."
+    },
+    {
+        "name": "Skyline Apartment",
+        "type": "Apartment",
+        "address": "Jl Thamrin, Jakarta Pusat",
+        "price": 170000000.0,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+        "distance": 2.5,
+        "ownerName": "Anna Johnson",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg"
+        ],
+        "description": "A modern apartment in the city center with rooftop amenities."
+    },
+    {
+        "name": "Green Valley",
+        "type": "Villa",
+        "address": "Jl Kebun Raya, Jakarta Selatan",
+        "price": 260000000.0,
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "imageUrl": "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+        "distance": 3.0,
+        "ownerName": "Daniel Green",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg"
+        ],
+        "description": "A tranquil villa surrounded by lush greenery and nature."
+    },
+    {
+        "name": "City Oasis",
+        "type": "House",
+        "address": "Jl Sudirman, Jakarta Pusat",
+        "price": 220000000.0,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "imageUrl": "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg",
+        "distance": 1.7,
+        "ownerName": "Jessica Miller",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6"
+        ],
+        "description": "A peaceful house in the bustling city center."
+    },
+    {
+        "name": "Mountain View Villa",
+        "type": "Villa",
+        "address": "Jl Gunung Sahari, Jakarta Utara",
+        "price": 350000000.0,
+        "bedrooms": 7,
+        "bathrooms": 6,
+        "imageUrl": "https://postandporch.com/cdn/shop/articles/AdobeStock_209124760.jpg",
+        "distance": 6.0,
+        "ownerName": "Peter Parker",
+        "ownerAvatar": "https://avatars.githubusercontent.com/u/66895637?v=4",
+        "galleryImages": [
+            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+            "https://st2.depositphotos.com/1041088/12097/i/450/depositphotos_120972180-stock-photo-light-blue-siding-house-porch.jpg"
+        ],
+        "description": "A luxurious villa with breathtaking mountain views."
+    }
+]

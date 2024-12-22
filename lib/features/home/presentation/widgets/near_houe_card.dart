@@ -6,6 +6,7 @@ class NearHouseCard extends StatelessWidget {
   final String title;
   final String address;
   final String distance;
+  final VoidCallback? onTap;
 
   const NearHouseCard({
     super.key,
@@ -13,97 +14,101 @@ class NearHouseCard extends StatelessWidget {
     required this.title,
     required this.address,
     required this.distance,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 222,
-      height: 272,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 222,
+        height: 272,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: NetworkImage(imageUrl),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 20,
-            right: 16,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: AppColors.locationIconBackground,
-                borderRadius: BorderRadius.circular(20),
+        child: Stack(
+          children: [
+            Positioned(
+              top: 20,
+              right: 16,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: AppColors.locationIconBackground,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  spacing: 4,
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: Colors.white,
+                      size: 16,
+                    ),
+                    Text(
+                      distance,
+                      style: const TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                  ],
+                ),
               ),
-              child: Row(
-                spacing: 4,
+            ),
+            Positioned(
+              bottom: 16,
+              left: 20,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                    size: 16,
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2.0, 2.0), // X and Y offsets
+                          blurRadius: 4.0, // Blur intensity
+                          color: Colors.grey.withValues(
+                            red: 0,
+                            green: 0,
+                            blue: 0,
+                            alpha: 0.5,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Text(
-                    distance,
-                    style: const TextStyle(color: Colors.white, fontSize: 12),
+                    address,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(2.0, 2.0), // X and Y offsets
+                          blurRadius: 4.0, // Blur intensity
+                          color: Colors.grey.withValues(
+                            red: 0,
+                            green: 0,
+                            blue: 0,
+                            alpha: 0.5,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-          ),
-          Positioned(
-            bottom: 16,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(2.0, 2.0), // X and Y offsets
-                        blurRadius: 4.0, // Blur intensity
-                        color: Colors.grey.withValues(
-                          red: 0,
-                          green: 0,
-                          blue: 0,
-                          alpha: 0.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
-                  address,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    shadows: [
-                      Shadow(
-                        offset: Offset(2.0, 2.0), // X and Y offsets
-                        blurRadius: 4.0, // Blur intensity
-                        color: Colors.grey.withValues(
-                          red: 0,
-                          green: 0,
-                          blue: 0,
-                          alpha: 0.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
