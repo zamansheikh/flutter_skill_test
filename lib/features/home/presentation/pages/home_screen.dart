@@ -194,7 +194,11 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 27),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: CustomSection(onTap: () {}, title: "Near from you"),
+                child: CustomSection(
+                    onTap: () {
+                      showToast("Not implemented yet");
+                    },
+                    title: "Near from you"),
               ),
               const SizedBox(height: 24),
               SingleChildScrollView(
@@ -233,7 +237,11 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(height: 24),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: CustomSection(onTap: () {}, title: "Best for you"),
+                child: CustomSection(
+                    onTap: () {
+                      showToast("Not implemented yet");
+                    },
+                    title: "Best for you"),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
