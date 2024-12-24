@@ -15,7 +15,7 @@ dependencies:
   google_fonts: ^6.2.1
   equatable: ^2.0.7
   flutter_native_splash: ^2.4.3
-  flutter_launcher_icons: ^0.14.2
+  icons_launcher: ^3.0.0
   flutter_svg: ^2.0.16
   rename_app: ^1.6.1
   connectivity_plus: ^6.1.1
@@ -42,6 +42,7 @@ flutter:
     - assets/houses/
     - assets/icons/
     - assets/json/
+    - assets/logo/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -67,3 +68,10 @@ flutter:
   #         weight: 700
   #
 
+icons_launcher:
+  image_path: "assets/logo/ird.jpg"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true

@@ -120,6 +120,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: TextField(
+                                onChanged: (value) =>
+                                    controller.setSearchQuery(value),
                                 enabled: isDrawerOpen ? false : true,
                                 decoration: InputDecoration(
                                   hintText: "Search address, or near you",
@@ -131,34 +133,63 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      height: 48,
-                      width: 48,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: AppColors.blueOceanLinearGradient,
+                    GestureDetector(
+                      onTap: () => showToast("Filter options coming soon!"),
+                      child: Container(
+                        height: 48,
+                        width: 48,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: AppColors.blueOceanLinearGradient,
+                        ),
+                        child: Icon(Icons.tune, color: Colors.white),
                       ),
-                      child: Icon(Icons.tune, color: Colors.white),
                     ),
                   ],
                 ),
               ),
               // Categories
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      CategoryButton(label: "House", isSelected: true),
-                      CategoryButton(label: "Apartment"),
-                      CategoryButton(label: "Hotel"),
-                      CategoryButton(label: "Villa"),
-                      CategoryButton(label: "Condo"),
-                    ],
+              Obx(() {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        CategoryButton(
+                          label: "All",
+                          isSelected: controller.selectedCategory.value.isEmpty,
+                          onTap: () => controller.setCategory(''),
+                        ),
+                        CategoryButton(
+                          label: "House",
+                          isSelected:
+                              controller.selectedCategory.value == "House",
+                          onTap: () => controller.setCategory('House'),
+                        ),
+                        CategoryButton(
+                          label: "Apartment",
+                          isSelected:
+                              controller.selectedCategory.value == "Apartment",
+                          onTap: () => controller.setCategory('Apartment'),
+                        ),
+                        CategoryButton(
+                          label: "Villa",
+                          isSelected:
+                              controller.selectedCategory.value == "Villa",
+                          onTap: () => controller.setCategory('Villa'),
+                        ),
+                        CategoryButton(
+                          label: "Condo",
+                          isSelected:
+                              controller.selectedCategory.value == "Condo",
+                          onTap: () => controller.setCategory('Condo'),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ),
+                );
+              }),
               // Near from you section
               const SizedBox(height: 27),
               Padding(
@@ -182,17 +213,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     return Row(spacing: 24, children: [
                       SizedBox(),
                       ...List.generate(
-                        controller.houses.length,
+                        controller.filteredHouses.length,
                         (index) => NearHouseCard(
                           onTap: () {
                             Get.toNamed(RouteNames.houseDetails,
-                                arguments: controller.houses[index]);
+                                arguments: controller.filteredHouses[index]);
                           },
-                          title: controller.houses[index].name,
-                          address: controller.houses[index].address,
+                          title: controller.filteredHouses[index].name,
+                          address: controller.filteredHouses[index].address,
                           distance:
-                              "${controller.houses[index].distance.toStringAsFixed(0)} KM",
-                          imageUrl: controller.houses[index].imageUrl,
+                              "${controller.filteredHouses[index].distance.toStringAsFixed(0)} KM",
+                          imageUrl: controller.filteredHouses[index].imageUrl,
                         ),
                       ),
                     ]);
@@ -225,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     }
                     return ListView.builder(
                       shrinkWrap: true,
-                      itemCount: controller.houses.length,
+                      itemCount: controller.filteredHouses.length,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) {
                         return Column(
@@ -233,14 +264,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             BestHouseCard(
                               onTap: () {
                                 Get.toNamed(RouteNames.houseDetails,
-                                    arguments: controller.houses[index]);
+                                    arguments:
+                                        controller.filteredHouses[index]);
                               },
-                              title: controller.houses[index].name,
+                              title: controller.filteredHouses[index].name,
                               price:
-                                  "Rp. ${controller.houses[index].price}/Year",
-                              bedrooms: controller.houses[index].bedrooms,
-                              bathrooms: controller.houses[index].bathrooms,
-                              imageUrl: controller.houses[index].imageUrl,
+                                  "Rp. ${controller.filteredHouses[index].price}/Year",
+                              bedrooms:
+                                  controller.filteredHouses[index].bedrooms,
+                              bathrooms:
+                                  controller.filteredHouses[index].bathrooms,
+                              imageUrl:
+                                  controller.filteredHouses[index].imageUrl,
                             ),
                             const SizedBox(height: 16),
                           ],
