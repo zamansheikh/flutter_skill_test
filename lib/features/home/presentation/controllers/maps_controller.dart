@@ -5,14 +5,12 @@ import 'package:latlong2/latlong.dart';
 class MapsController extends GetxController {
   final String placeName;
   MapsController(this.placeName);
-
-  // Reactive state for the location
   Rxn<LatLng> locationOfThisPlace = Rxn<LatLng>();
 
   @override
   void onInit() {
     super.onInit();
-    getLocationByName(placeName); // Fetch location on controller initialization
+    getLocationByName(placeName); 
   }
 
   Future<void> getLocationByName(String placeName) async {
@@ -24,7 +22,7 @@ class MapsController extends GetxController {
       }
     } catch (e) {
       print('Error fetching location: $e');
-      locationOfThisPlace.value = LatLng(23.777176, 90.399452); // Default to Dhaka
+      locationOfThisPlace.value = LatLng(23.777176, 90.399452); 
     }
   }
 }

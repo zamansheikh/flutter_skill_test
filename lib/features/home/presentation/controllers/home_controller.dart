@@ -13,7 +13,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    fetchHouses(); // Fetch houses when controller is initialized
+    fetchHouses(); 
   }
 
   Future<void> fetchHouses() async {
@@ -23,16 +23,16 @@ class HomeController extends GetxController {
       result.fold(
         (failure) {
           print('Error: $failure');
-          isLoading.value = false; // Stop loading on error
+          isLoading.value = false; 
         },
         (data) {
-          houses.assignAll(data); // Update houses
-          isLoading.value = false; // Stop loading on success
+          houses.assignAll(data); 
+          isLoading.value = false; 
         },
       );
     } catch (e) {
       print('Exception: $e');
-      isLoading.value = false; // Stop loading on exception
+      isLoading.value = false; 
     }
   }
 }

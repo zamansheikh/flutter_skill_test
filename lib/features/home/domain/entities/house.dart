@@ -1,17 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class House  extends Equatable {
-  final String name; 
+class House extends Equatable {
+  final String name;
   final String type;
-  final String address; 
-  final double price; 
-  final int bedrooms; 
-  final int bathrooms; 
-  final String imageUrl; 
-  final double distance; 
-  final String ownerName; 
+  final String address;
+  final double price;
+  final int bedrooms;
+  final int bathrooms;
+  final String imageUrl;
+  final double distance;
+  final String ownerName;
   final String ownerAvatar;
-  final List<String> galleryImages; 
+  final String ownerPhone;
+  final List<String> galleryImages;
   final String description;
 
   const House({
@@ -25,23 +26,25 @@ class House  extends Equatable {
     required this.distance,
     required this.ownerName,
     required this.ownerAvatar,
+    required this.ownerPhone,
     required this.galleryImages,
     required this.description,
   });
 
   @override
   List<Object> get props => [
-    name,
-    type,
-    address,
-    price,
-    bedrooms,
-    bathrooms,
-    imageUrl,
-    distance,
-    ownerName,
-    ownerAvatar,
-    galleryImages,
-    description,
-  ];
+        name,
+        type,
+        address,
+        price,
+        bedrooms,
+        bathrooms,
+        imageUrl,
+        distance,
+        ownerName,
+        ownerAvatar,
+        ownerPhone,
+        galleryImages,
+        description,
+      ];
 }

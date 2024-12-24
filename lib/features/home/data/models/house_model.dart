@@ -12,6 +12,7 @@ class HouseModel extends House {
     required super.distance,
     required super.ownerName,
     required super.ownerAvatar,
+    required super.ownerPhone,
     required super.galleryImages,
     required super.description,
   });
@@ -28,6 +29,7 @@ class HouseModel extends House {
       distance: json['distance'],
       ownerName: json['ownerName'],
       ownerAvatar: json['ownerAvatar'],
+      ownerPhone: json['ownerPhone'],
       galleryImages: List<String>.from(json['galleryImages']),
       description: json['description'],
     );
@@ -45,6 +47,7 @@ class HouseModel extends House {
       'distance': distance,
       'ownerName': ownerName,
       'ownerAvatar': ownerAvatar,
+      'ownerPhone': ownerPhone,
       'galleryImages': galleryImages,
       'description': description,
     };
